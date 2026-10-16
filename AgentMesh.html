@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algoleap Enterprise Intelligence Engine - Interactive 3-Agent Mesh Simulator</title>
+    <style>
+        :root {
+            --border-color: #cbd5e1;
+            --text-muted: #64748b;
+            --text-main: #0f172a;
+            --accent: #2563eb;
+            --status-running: #d97706;
+            --status-completed: #059669;
+            --blue: #2563eb;
+            --border: #e2e8f0;
+            --bg: #f8fafc;
+            --card-bg: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background: var(--bg);
+            color: var(--text-main);
+            margin: 0;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .header {
+            max-width: 1000px;
+            width: 100%;
+            margin-bottom: 24px;
+            text-align: left;
+        }
+
+        .header h1 {
+            font-size: 28px;
+            font-weight: 800;
+            margin: 0 0 8px 0;
+            color: #1e3a8a;
+            letter-spacing: -0.02em;
+        }
+
+        .header p {
+            margin: 0;
+            color: var(--text-muted);
+            font-size: 15px;
+            line-height: 1.5;
+        }
+
+        .main-grid {
+            max-width: 1000px;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin-bottom: 30px;
+        }
+
+        @media (max-width: 768px) {
+            .main-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 22px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-title {
+            font-size: 13px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-muted);
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 10px;
+        }
+
+        .sample-btn {
+            background: #f8fafc;
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 14px;
+            margin-bottom: 12px;
+            cursor: pointer;
+            text-align: left;
+            transition: all 0.2s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .sample-btn:hover {
+            border-color: #2563eb;
+            background: #f1f5f9;
+        }
+
+        .sample-btn.active {
+            border-color: #2563eb;
+            background: #eff6ff;
+            box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.15);
+        }
+
+        .sample-btn.active::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: #2563eb;
+        }
+
+        .sample-title {
+            font-weight: 700;
+            font-size: 14px;
+            color: #0f172a;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .sample-desc {
+            font-size: 12px;
+            color: #475569;
+            line-height: 1.4;
+        }
+
+        .randomize-btn {
+            background: #ffffff;
+            border: 1px solid #cbd5e1;
+            color: #1e293b;
+            padding: 10px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 12px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+        }
+
+        .randomize-btn:hover {
+            background: #f8fafc;
+            border-color: #94a3b8;
+        }
+
+        .json-box {
+            background: #0f172a;
+            color: #38bdf8;
+            font-family: "Fira Code", monospace;
+            font-size: 12px;
+            padding: 16px;
+            border-radius: 10px;
+            flex-grow: 1;
+            margin-bottom: 14px;
+            border: 2px solid #334155;
+            white-space: pre;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.3);
+            width: 100%;
+            min-height: 240px;
+            resize: vertical;
+            outline: none;
+            transition: border-color 0.2s ease;
+        }
+
+        .json-box:focus {
+            border-color: #2563eb;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2), inset 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .edit-notice {
+            font-size: 11px;
+            color: #64748b;
+            margin-bottom: 14px;
+            font-style: italic;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .run-btn {
+            background: linear-gradient(135deg, #1e40af, #2563eb);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            padding: 16px;
+            font-weight: 800;
+            font-size: 15px;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+            letter-spacing: 0.03em;
+        }
+
+        .run-btn:hover {
+            background: linear-gradient(135deg, #1e3a8a, #1d4ed8);
+            transform: translateY(-1px);
+            box-shadow: 0 6px 16px rgba(37, 99, 235, 0.35);
+        }
+
+        .run-btn:disabled {
+            background: #94a3b8;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+            opacity: 0.8;
+        }
+
+        /* Flowchart Mesh & Glowing Pipes Styles */
+        .flowchart-section {
+            max-width: 1000px;
+            width: 100%;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 28px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            margin-bottom: 30px;
+        }
+
+        .flowchart {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            position: relative;
+        }
+
+        .layer {
+            border: 1px dashed #cbd5e1;
+            border-radius: 14px;
+            padding: 24px 20px 20px 20px;
+            width: 100%;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 14px;
+            background: #f8fafc;
+            transition: all 0.3s ease;
+        }
+
+        .layer.active-layer {
+            border-color: #2563eb;
+            background: #eff6ff;
+            box-shadow: 0 0 15px rgba(37, 99, 235, 0.1);
+        }
+
+        .layer-label {
+            position: absolute;
+            top: -11px;
+            left: 20px;
+            background: #ffffff;
+            padding: 2px 12px;
+            border-radius: 6px;
+            border: 1px solid #cbd5e1;
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: #334155;
+        }
+
+        .agent-node {
+            padding: 16px 32px;
+            border-radius: 12px;
+            min-width: 320px;
+            text-align: center;
+            font-size: 15px;
+            font-weight: 800;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            z-index: 5;
+            color: #0f172a;
+        }
+
+        .idle {
+            opacity: 0.5;
+            border: 1px solid #cbd5e1;
+            background: #ffffff;
+            color: #64748b;
+        }
+
+        .running {
+            border: 2px solid #d97706;
+            background: #fffbeb;
+            color: #92400e;
+            transform: scale(1.04);
+            box-shadow: 0 0 0 6px rgba(217, 119, 6, 0.15);
+        }
+
+        .completed {
+            border: 2px solid #059669;
+            background: #ecfdf5;
+            color: #065f46;
+            box-shadow: 0 4px 12px rgba(5, 150, 105, 0.15);
+        }
+
+        /* Animated Glowing Connection Pipes */
+        .pipe-container {
+            width: 100%;
+            height: 60px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .pipe {
+            width: 4px;
+            height: 100%;
+            background: #cbd5e1;
+            position: relative;
+            overflow: hidden;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .pipe.flowing {
+            background: #2563eb;
+            width: 6px;
+            box-shadow: 0 0 12px rgba(37, 99, 235, 0.4);
+        }
+
+        .pipe.flowing::after {
+            content: '';
+            position: absolute;
+            top: -100%;
+            left: 0;
+            width: 100%;
+            height: 50%;
+            background: linear-gradient(to bottom, transparent, #60a5fa, #1e3a8a);
+            animation: flow-beam 0.8s infinite linear;
+        }
+
+        @keyframes flow-beam {
+            0% { top: -100%; }
+            100% { top: 200%; }
+        }
+
+        /* Floating Data Packet Badge */
+        .data-packet {
+            position: absolute;
+            background: #1e3a8a;
+            color: white;
+            font-size: 11px;
+            font-weight: 800;
+            padding: 5px 14px;
+            border-radius: 20px;
+            border: 1px solid #60a5fa;
+            box-shadow: 0 4px 10px rgba(30, 58, 138, 0.25);
+            white-space: nowrap;
+            z-index: 10;
+            opacity: 0;
+            transform: scale(0.8);
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .data-packet.show {
+            opacity: 1;
+            transform: scale(1);
+            animation: packet-bounce 1s infinite alternate ease-in-out;
+        }
+
+        @keyframes packet-bounce {
+            from { transform: translateY(-3px) scale(1); }
+            to { transform: translateY(3px) scale(1.02); }
+        }
+
+        /* Console Log Styles */
+        .console-section {
+            max-width: 1000px;
+            width: 100%;
+            background: #0f172a;
+            border: 1px solid #334155;
+            border-radius: 16px;
+            padding: 22px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            color: #e2e8f0;
+            font-family: "Fira Code", monospace;
+        }
+
+        .console-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #334155;
+            padding-bottom: 14px;
+            margin-bottom: 16px;
+            font-size: 13px;
+            color: #94a3b8;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .console-logs {
+            max-height: 280px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            font-size: 13px;
+            padding-right: 8px;
+        }
+
+        .log-entry {
+            display: flex;
+            gap: 12px;
+            line-height: 1.6;
+            animation: fadeIn 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            background: rgba(30, 41, 59, 0.5);
+            padding: 8px 12px;
+            border-radius: 8px;
+            border-left: 3px solid #475569;
+        }
+
+        .log-entry.signal-log { border-left-color: #f59e0b; background: rgba(245, 158, 11, 0.08); }
+        .log-entry.integration-log { border-left-color: #38bdf8; background: rgba(56, 189, 248, 0.08); }
+        .log-entry.quality-log { border-left-color: #c084fc; background: rgba(192, 132, 252, 0.08); }
+        .log-entry.success-log { border-left-color: #10b981; background: rgba(16, 185, 129, 0.12); }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateX(-10px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        .log-time { color: #64748b; font-size: 11px; min-width: 70px; font-weight: 600; }
+        .log-agent { font-weight: 800; min-width: 160px; }
+        .log-agent.signal { color: #fbbf24; }
+        .log-agent.integration { color: #38bdf8; }
+        .log-agent.quality { color: #c084fc; }
+        .log-agent.system { color: #34d399; }
+        .log-msg { color: #f8fafc; }
+
+        .result-box {
+            margin-top: 20px;
+            padding: 16px;
+            background: rgba(16, 185, 129, 0.15);
+            border: 1px solid #10b981;
+            border-radius: 10px;
+            color: #34d399;
+            font-weight: 700;
+            font-size: 14px;
+            display: none;
+            align-items: center;
+            gap: 12px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Algoleap Enterprise Intelligence Engine</h1>
+        <p>Interactive 3-Agent Mesh Architecture — Watch how <strong>RAW INPUT DUMMY DATA</strong> is caught by the Listener, translated by the Integration layer, and autonomously reasoned upon by our self-hosted Transformer Inspector. You can also edit any value directly in the box below before executing!</p>
+    </div>
+
+    <div class="main-grid">
+        <!-- Left: Select RAW INPUT Dummy Data -->
+        <div class="card">
+            <div class="card-title">
+                <span>1. Select Raw Input Dummy Data (Ingress)</span>
+                <span style="color: #2563eb; font-size: 11px; background: #eff6ff; padding: 4px 8px; border-radius: 4px; font-weight: 800;">RAW INPUT STREAM</span>
+            </div>
+
+            <button class="randomize-btn" onclick="randomizeCurrentSample()">
+                <span>[Randomize Input Data Values]</span>
+            </button>
+            
+            <div class="sample-btn active" onclick="selectSample(0)" id="btn-0">
+                <div class="sample-title">[GitHub PR Merge] Thin HR Profile</div>
+                <div class="sample-desc">Engineer merges code repository pull request. Zero skill matrices in HRIS.</div>
+            </div>
+
+            <div class="sample-btn" onclick="selectSample(1)" id="btn-1">
+                <div class="sample-title">[Workday HRIS] Promotion & Comp Change</div>
+                <div class="sample-desc">Manager updates salary compa-ratio for Senior Cloud Architect.</div>
+            </div>
+
+            <div class="sample-btn" onclick="selectSample(2)" id="btn-2">
+                <div class="sample-title">[Jira Enterprise] High-Velocity Ticket Burst</div>
+                <div class="sample-desc">DevOps Engineer closes multiple P0/P1 Kubernetes tickets in rapid succession.</div>
+            </div>
+        </div>
+
+        <!-- Right: Raw JSON Payload (Now Editable!) -->
+        <div class="card">
+            <div class="card-title">
+                <span>2. Raw Input Event Payload (Editable Ingress Box)</span>
+                <span id="payload-type" style="color: #1e40af; font-size: 12px; font-weight: 700;">GitHub Webhook</span>
+            </div>
+            
+            <textarea class="json-box" id="json-display" spellcheck="false"></textarea>
+            
+            <div class="edit-notice">
+                <span>[NOTICE: You can directly edit any JSON value above before injecting into the mesh!]</span>
+            </div>
+
+            <button class="run-btn" id="run-btn" onclick="runSimulation()">
+                <span>Inject Input Data & Watch Visual Workflow</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Center: Flowchart Mesh -->
+    <div class="flowchart-section">
+        <div class="card-title" style="margin-bottom: 24px;">
+            <span>3. Live Connected Agent Mesh Topography (Visual Data Flow)</span>
+            <span id="mesh-status" style="color: #64748b; font-size: 13px; font-weight: 800;">STATUS: IDLE (AWAITING INPUT DATA)</span>
+        </div>
+
+        <div class="flowchart">
+            <!-- Layer 1 -->
+            <div class="layer" id="layer-signal">
+                <div class="layer-label">Layer 1: Sensory Ingress (Raw Event Detection)</div>
+                <div class="agent-node idle" id="node-signal">
+                    Signal Agent ("The Listener")
+                    <span style="display:block; font-size: 12px; font-weight: 500; opacity: 0.9; margin-top: 6px; color: #b45309;">Algoleap Temporal Anomaly Engine (ATAE)</span>
+                </div>
+            </div>
+
+            <!-- Animated Pipe 1 -->
+            <div class="pipe-container">
+                <div class="pipe" id="pipe-1"></div>
+                <div class="data-packet" id="packet-1">[TRANSMITTING RAW INPUT PAYLOAD TO TRANSLATOR]</div>
+            </div>
+
+            <!-- Layer 2 -->
+            <div class="layer" id="layer-integration">
+                <div class="layer-label">Layer 2: Entity Resolution & Schema Mapping</div>
+                <div class="agent-node idle" id="node-integration">
+                    Integration Agent ("The Translator")
+                    <span style="display:block; font-size: 12px; font-weight: 500; opacity: 0.9; margin-top: 6px; color: #1d4ed8;">RoBERTa NER & R-GCN Graph Resolution</span>
+                </div>
+            </div>
+
+            <!-- Animated Pipe 2 -->
+            <div class="pipe-container">
+                <div class="pipe" id="pipe-2"></div>
+                <div class="data-packet" id="packet-2">[PASSING CANONICAL RECORD TO INSPECTOR]</div>
+            </div>
+
+            <!-- Layer 3 -->
+            <div class="layer" id="layer-quality">
+                <div class="layer-label">Layer 3: Autonomous Reasoning & Skill Inference</div>
+                <div class="agent-node idle" id="node-quality">
+                    Data Quality Agent ("The Inspector")
+                    <span style="display:block; font-size: 12px; font-weight: 500; opacity: 0.9; margin-top: 6px; color: #6d28d9;">AWFM-13B Transformer & Semantic Cosine Matching</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bottom: Live Execution Console -->
+    <div class="console-section">
+        <div class="console-header">
+            <span>4. Real-Time Autonomous Reasoning Logs (Step-by-Step AI Execution)</span>
+            <span id="log-status" style="color: #38bdf8;">Ready for Ingress</span>
+        </div>
+        <div class="console-logs" id="console-logs">
+            <div class="log-entry">
+                <span class="log-time">--:--:--</span>
+                <span class="log-agent system">[SYSTEM READY]</span>
+                <span class="log-msg">Loaded RAW INPUT payload. You can freely edit values in Box 2, then click "Inject Input Data & Watch Visual Workflow".</span>
+            </div>
+        </div>
+        <div class="result-box" id="result-box">
+            <span style="font-size: 16px; font-weight: 900;">[SUCCESS]</span>
+            <span id="result-text">Canonical HR Database successfully updated without human intervention!</span>
+        </div>
+    </div>
+
+    <script>
+        const NAMES = ["Amit Kumar", "Arjun Patel", "Sarah Jones", "Priya Sharma", "David Chen", "Vikram Malhotra"];
+        const REPOS = ["algoleap-workforce-frontend", "workforce-intelligence-core", "temporal-anomaly-engine", "enterprise-hris-sync"];
+        const SKILLS = ["React 19", "TypeScript", "Python 3.12", "Kubernetes", "GraphQL API", "Sentence Transformers"];
+
+        let currentSample = 0;
+        let isRunning = false;
+        let activePayload = null;
+        let activeLogs = [];
+        let activeResult = "";
+        let activePacket1 = "";
+        let activePacket2 = "";
+
+        function generateData(index) {
+            const randId = Math.floor(10000 + Math.random() * 89999);
+            const empId = Math.floor(100 + Math.random() * 899);
+            const name = NAMES[Math.floor(Math.random() * NAMES.length)];
+            const timeStr = new Date().toISOString();
+
+            if (index === 0) {
+                const lines = Math.floor(2000 + Math.random() * 5000);
+                const skill = SKILLS[Math.floor(Math.random() * SKILLS.length)];
+                const repo = REPOS[Math.floor(Math.random() * REPOS.length)];
+                
+                activePayload = {
+                    event_id: `evt_git_${randId}`,
+                    timestamp: timeStr,
+                    source: "GitHub_Enterprise_VPC",
+                    author: `dev-${name.toLowerCase().replace(" ", "")}`,
+                    repository: repo,
+                    pull_request: `#${Math.floor(100 + Math.random() * 800)}`,
+                    lines_added: lines,
+                    extracted_tokens: [skill, "System Architecture", "Unit Tests", "Code Optimization"]
+                };
+            } 
+            else if (index === 1) {
+                const oldBase = Math.floor(140 + Math.random() * 30);
+                const newBase = oldBase + Math.floor(15 + Math.random() * 20);
+                const ratio = (0.88 + Math.random() * 0.12).toFixed(2);
+                
+                activePayload = {
+                    event_id: `evt_wd_${randId}`,
+                    timestamp: timeStr,
+                    source: "Workday_HRIS_Prod",
+                    employee_id: `EMP-00${empId}`,
+                    action: "SALARY_MERIT_ADJUSTMENT",
+                    previous_base: `INR ${oldBase},00,000`,
+                    new_base: `INR ${newBase},00,000`,
+                    new_compa_ratio: parseFloat(ratio),
+                    department: "Engineering - Infrastructure"
+                };
+            } 
+            else {
+                const tickets = Math.floor(12 + Math.random() * 8);
+                const hours = (2.0 + Math.random() * 2.0).toFixed(1);
+                
+                activePayload = {
+                    event_id: `evt_jira_${randId}`,
+                    timestamp: timeStr,
+                    source: "Jira_Enterprise_VPC",
+                    user_email: `${name.toLowerCase().replace(" ", ".")}@algoleap.com`,
+                    action: "TICKET_BURST_CLOSURE",
+                    tickets_resolved: tickets,
+                    timespan_hours: parseFloat(hours),
+                    component: "Kubernetes-Cluster-Autoscaler",
+                    severity_distribution: { P0_Critical: Math.floor(tickets * 0.3), P1_High: Math.floor(tickets * 0.7) }
+                };
+            }
+
+            document.getElementById("payload-type").innerText = index === 0 ? "GitHub Webhook [RAW INPUT DATA]" : index === 1 ? "Workday HRIS Event [RAW INPUT DATA]" : "Jira Enterprise Webhook [RAW INPUT DATA]";
+            document.getElementById("json-display").value = JSON.stringify(activePayload, null, 2);
+        }
+
+        function buildDynamicLogsAndPackets(payload) {
+            const evtId = payload.event_id || "evt_custom_001";
+            const src = payload.source || "External_HRIS";
+
+            if (currentSample === 0) {
+                const author = payload.author || "dev-engineer";
+                const lines = payload.lines_added || 3500;
+                const repo = payload.repository || "enterprise-repo";
+                const tokens = Array.isArray(payload.extracted_tokens) && payload.extracted_tokens.length > 0 ? payload.extracted_tokens[0] : "TypeScript";
+                const cleanName = author.replace("dev-", "").toUpperCase();
+                const empId = Math.floor(100 + Math.random() * 899);
+
+                activePacket1 = `[RAW PAYLOAD: ${evtId}] -> TRANSLATING SCHEMA`;
+                activePacket2 = `[CANONICAL ID #${empId}: ${cleanName}] -> INFERRING SKILLS`;
+                activeLogs = [
+                    { cls: "signal-log", agent: "signal", name: "[Signal Agent]", text: `Caught raw input webhook '${evtId}' from ${src}. Calculated velocity anomaly score: 0.14 (Normal). Handing custom payload to Integration Layer...` },
+                    { cls: "integration-log", agent: "integration", name: "[Integration Agent]", text: `Resolving identity for author '${author}'. Querying relational graph... Matched canonical ID: #${empId} (${cleanName}, Senior Engineer). Normalizing repository metadata...` },
+                    { cls: "quality-log", agent: "quality", name: "[Data Quality Agent]", text: `Inspecting canonical record #${empId}. Notice: Profile currently lists zero formal proficiency matrices for '${tokens}'.` },
+                    { cls: "quality-log", agent: "quality", name: "[Data Quality Agent]", text: `Invoking AWFM-13B semantic reasoning: Evaluated ${lines} lines of verified production code in '${repo}'. Cosine similarity against ${tokens} ontology: 0.97.` },
+                    { cls: "quality-log", agent: "quality", name: "[Data Quality Agent]", text: `AUTONOMOUS INFERENCE EXECUTED: Updating ${cleanName}'s profile -> Added skill '${tokens} (Level 5/5 - Expert)'. Confidence: 98.6%.` },
+                    { cls: "success-log", agent: "system", name: "[SYSTEM SUCCESS]", text: `Canonical HR Database automatically updated with verified skill: ${tokens} (L5).` }
+                ];
+                activeResult = `Canonical Record #${empId} (${cleanName}) updated with customized skill: ${tokens} (L5). Zero manual data entry required!`;
+            }
+            else if (currentSample === 1) {
+                const empStr = payload.employee_id || "EMP-00104";
+                const action = payload.action || "SALARY_ADJUSTMENT";
+                const ratio = payload.new_compa_ratio || 0.95;
+                const newBase = payload.new_base || "INR 1,80,00,000";
+
+                activePacket1 = `[RAW HRIS EVENT: ${action}] -> RESOLVING ID`;
+                activePacket2 = `[CANONICAL RECORD: ${empStr}] -> RECALCULATING RISK`;
+                activeLogs = [
+                    { cls: "signal-log", agent: "signal", name: "[Signal Agent]", text: `Detected compa-ratio modification event '${evtId}' from ${src}. Triggering real-time compensation risk recalculation...` },
+                    { cls: "integration-log", agent: "integration", name: "[Integration Agent]", text: `Mapping Workday schema '${empStr}' to internal database primary key. Standardizing customized salary base '${newBase}' to numerical decimal...` },
+                    { cls: "quality-log", agent: "quality", name: "[Data Quality Agent]", text: `Validating customized compa-ratio shift to ${ratio} against market midpoint. Cross-referencing L-BFGS Gradient Ascent retention curve...` },
+                    { cls: "quality-log", agent: "quality", name: "[Data Quality Agent]", text: `Mathematical verification passed. Flight Risk (P_attrition) recalculated: Dropping from critical 89.2% -> safe 14.2%. Financial attrition savings locked.` },
+                    { cls: "success-log", agent: "system", name: "[SYSTEM SUCCESS]", text: "Executive Portfolio Command Center dynamically synced with customized flight risk metrics." }
+                ];
+                activeResult = `Employee record (${empStr}) Flight Risk reduced to 14.2% based on your edited salary parameters.`;
+            }
+            else {
+                const email = payload.user_email || "devops@algoleap.com";
+                const tickets = payload.tickets_resolved || 15;
+                const hours = payload.timespan_hours || 2.5;
+
+                activePacket1 = `[RAW BURST: ${tickets} TICKETS / ${hours} HRS] -> SCORE VELOCITY`;
+                activePacket2 = `[CANONICAL EMAIL: ${email}] -> AUDITING BURNOUT`;
+                activeLogs = [
+                    { cls: "signal-log", agent: "signal", name: "[Signal Agent]", text: `WARNING: High-velocity ticket burst detected! User '${email}' closed ${tickets} tickets in ${hours} hours. Statistical anomaly score: 0.96 (HIGH).` },
+                    { cls: "integration-log", agent: "integration", name: "[Integration Agent]", text: `Resolving email '${email}' -> Canonical Employee Record. Aggregating customized weekly utilization hours...` },
+                    { cls: "quality-log", agent: "quality", name: "[Data Quality Agent]", text: `Auditing workload saturation. Current utilization spiked over critical burnout threshold based on your edited ticket burst speed.` },
+                    { cls: "quality-log", agent: "quality", name: "[Data Quality Agent]", text: `Triggering proactive intervention protocol: Recommending immediate workload rebalancing on Operational Dashboard.` },
+                    { cls: "success-log", agent: "system", name: "[SYSTEM SUCCESS]", text: `Alert dispatched to Engineering Manager. Burnout risk flagged before delivery failure occurred.` }
+                ];
+                activeResult = `High Burnout Anomaly caught in real-time for '${email}'! Flagged for immediate sprint offloading.`;
+            }
+        }
+
+        function randomizeCurrentSample() {
+            if (isRunning) return;
+            generateData(currentSample);
+            resetFlowchart();
+        }
+
+        function selectSample(index) {
+            if (isRunning) return;
+            currentSample = index;
+            
+            document.querySelectorAll(".sample-btn").forEach((btn, i) => {
+                btn.classList.toggle("active", i === index);
+            });
+
+            generateData(index);
+            resetFlowchart();
+        }
+
+        function resetFlowchart() {
+            document.getElementById("node-signal").className = "agent-node idle";
+            document.getElementById("node-integration").className = "agent-node idle";
+            document.getElementById("node-quality").className = "agent-node idle";
+            
+            document.getElementById("layer-signal").className = "layer";
+            document.getElementById("layer-integration").className = "layer";
+            document.getElementById("layer-quality").className = "layer";
+
+            document.getElementById("pipe-1").className = "pipe";
+            document.getElementById("pipe-2").className = "pipe";
+            
+            document.getElementById("packet-1").className = "data-packet";
+            document.getElementById("packet-2").className = "data-packet";
+
+            document.getElementById("mesh-status").innerText = "STATUS: IDLE (AWAITING INPUT DATA)";
+            document.getElementById("mesh-status").style.color = "#64748b";
+            document.getElementById("result-box").style.display = "none";
+            document.getElementById("log-status").innerText = "Ready for Ingress";
+            document.getElementById("log-status").style.color = "#38bdf8";
+            
+            const logsContainer = document.getElementById("console-logs");
+            logsContainer.innerHTML = `
+                <div class="log-entry">
+                    <span class="log-time">${new Date().toLocaleTimeString()}</span>
+                    <span class="log-agent system">[SYSTEM READY]</span>
+                    <span class="log-msg">Loaded RAW INPUT payload. You can freely edit values in Box 2, then click "Inject Input Data & Watch Visual Workflow".</span>
+                </div>
+            `;
+        }
+
+        function addLog(cls, agentClass, agentName, msg) {
+            const logsContainer = document.getElementById("console-logs");
+            const entry = document.createElement("div");
+            entry.className = `log-entry ${cls}`;
+            entry.innerHTML = `
+                <span class="log-time">${new Date().toLocaleTimeString()}</span>
+                <span class="log-agent ${agentClass}">${agentName}</span>
+                <span class="log-msg">${msg}</span>
+            `;
+            logsContainer.appendChild(entry);
+            logsContainer.scrollTop = logsContainer.scrollHeight;
+        }
+
+        async function runSimulation() {
+            if (isRunning) return;
+            
+            // Read whatever JSON content the user edited in the textarea!
+            const rawText = document.getElementById("json-display").value;
+            let parsedPayload;
+            try {
+                parsedPayload = JSON.parse(rawText);
+            } catch (err) {
+                alert("Invalid JSON format in Box 2! Please ensure your edited JSON is valid syntax before executing.");
+                return;
+            }
+
+            isRunning = true;
+            const btn = document.getElementById("run-btn");
+            btn.disabled = true;
+            btn.innerHTML = "<span>Processing Ingress & Visualizing Flow...</span>";
+            
+            resetFlowchart();
+            buildDynamicLogsAndPackets(parsedPayload);
+
+            // Step 1: Signal Agent [LISTENING FOR INPUT]
+            document.getElementById("mesh-status").innerText = "STATUS: STEP 1/3 - LISTENER CATCHING INPUT PAYLOAD";
+            document.getElementById("mesh-status").style.color = "#d97706";
+            document.getElementById("log-status").innerText = "Layer 1 Active: Anomaly Velocity Scoring";
+            document.getElementById("log-status").style.color = "#fbbf24";
+
+            document.getElementById("layer-signal").className = "layer active-layer";
+            document.getElementById("node-signal").className = "agent-node running";
+            
+            addLog(activeLogs[0].cls, activeLogs[0].agent, activeLogs[0].name, activeLogs[0].text);
+            await new Promise(r => setTimeout(r, 1600));
+
+            // Step 2: Transition down Pipe 1 to Integration Agent
+            document.getElementById("layer-signal").className = "layer";
+            document.getElementById("node-signal").className = "agent-node completed";
+            document.getElementById("pipe-1").className = "pipe flowing";
+            
+            const pkt1 = document.getElementById("packet-1");
+            pkt1.innerText = activePacket1;
+            pkt1.className = "data-packet show";
+
+            document.getElementById("mesh-status").innerText = "STATUS: STEP 2/3 - TRANSLATING DATA SCHEMA & GRAPH MAPPING";
+            document.getElementById("mesh-status").style.color = "#2563eb";
+            document.getElementById("log-status").innerText = "Layer 2 Active: Entity Resolution";
+            document.getElementById("log-status").style.color = "#38bdf8";
+
+            document.getElementById("layer-integration").className = "layer active-layer";
+            document.getElementById("node-integration").className = "agent-node running";
+            
+            addLog(activeLogs[1].cls, activeLogs[1].agent, activeLogs[1].name, activeLogs[1].text);
+            await new Promise(r => setTimeout(r, 1800));
+
+            // Step 3: Transition down Pipe 2 to Data Quality Agent
+            pkt1.className = "data-packet";
+            document.getElementById("layer-integration").className = "layer";
+            document.getElementById("node-integration").className = "agent-node completed";
+            document.getElementById("pipe-2").className = "pipe flowing";
+            
+            const pkt2 = document.getElementById("packet-2");
+            pkt2.innerText = activePacket2;
+            pkt2.className = "data-packet show";
+
+            document.getElementById("mesh-status").innerText = "STATUS: STEP 3/3 - AUTONOMOUS INFERENCE & REASONING";
+            document.getElementById("mesh-status").style.color = "#6d28d9";
+            document.getElementById("log-status").innerText = "Layer 3 Active: AWFM-13B Transformer Execution";
+            document.getElementById("log-status").style.color = "#c084fc";
+
+            document.getElementById("layer-quality").className = "layer active-layer";
+            document.getElementById("node-quality").className = "agent-node running";
+
+            for (let i = 2; i < activeLogs.length - 1; i++) {
+                addLog(activeLogs[i].cls, activeLogs[i].agent, activeLogs[i].name, activeLogs[i].text);
+                await new Promise(r => setTimeout(r, 1300));
+            }
+
+            // Step 4: Completion & Successful DB Commit
+            pkt2.className = "data-packet";
+            document.getElementById("layer-quality").className = "layer";
+            document.getElementById("node-quality").className = "agent-node completed";
+            document.getElementById("mesh-status").innerText = "STATUS: 100% WORKFLOW COMPLETED (DATA COMMITTED)";
+            document.getElementById("mesh-status").style.color = "#059669";
+            document.getElementById("log-status").innerText = "Workflow Executed Successfully";
+            document.getElementById("log-status").style.color = "#10b981";
+
+            const lastLog = activeLogs[activeLogs.length - 1];
+            addLog(lastLog.cls, lastLog.agent, lastLog.name, lastLog.text);
+
+            const resBox = document.getElementById("result-box");
+            document.getElementById("result-text").innerText = activeResult;
+            resBox.style.display = "flex";
+
+            btn.disabled = false;
+            btn.innerHTML = "<span>Inject Another Input Payload & Re-run Flow</span>";
+            isRunning = false;
+        }
+
+        // Initialize display
+        selectSample(0);
+    </script>
+</body>
+</html>

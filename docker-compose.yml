@@ -1,0 +1,36 @@
+version: "3.8"
+
+services:
+  backend:
+    build: 
+      context: ./workforce-backend
+    ports:
+      - "8000:8000"
+    environment:
+      - DATABASE_URL=${DATABASE_URL:-sqlite:///./workforce.db}
+      - SECRET_KEY=${SECRET_KEY:-demo-secret-key-do-not-use-in-prod}
+      - JWT_SECRET=${JWT_SECRET:-demo-jwt-secret-key-12345}
+      - ACCESS_TOKEN_EXPIRE_MINUTES=${ACCESS_TOKEN_EXPIRE_MINUTES:-1440}
+      - FRONTEND_URL=${FRONTEND_URL:-http://localhost:80}
+    volumes:
+      - backend_data:/app/data
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/')"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  frontend:
+    build:
+      context: ./workforce-frontend
+    ports:
+      - "80:80"
+    environment:
+      - VITE_API_URL=${BACKEND_URL:-http://localhost:8000/api/v1}
+    restart: unless-stopped
+    depends_on:
+      - backend
+
+volumes:
+  backend_data:

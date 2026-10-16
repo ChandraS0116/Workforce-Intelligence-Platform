@@ -1,0 +1,501 @@
+skill_id,skill_name,skill_category,demand_level
+SKL0001,Distributed Systems,Software Engineering,Medium
+SKL0002,Vue.js,Software Engineering,Low
+SKL0003,Node.js,Software Engineering,High
+SKL0004,Flask,Software Engineering,Low
+SKL0005,Swift,Software Engineering,Medium
+SKL0006,Spring Boot,Software Engineering,Medium
+SKL0007,Rust,Software Engineering,High
+SKL0008,React,Software Engineering,Low
+SKL0009,TypeScript,Software Engineering,Medium
+SKL0010,System Design,Software Engineering,High
+SKL0011,GraphQL,Software Engineering,High
+SKL0012,Django,Software Engineering,Low
+SKL0013,Event-Driven Architecture,Software Engineering,Medium
+SKL0014,Kotlin,Software Engineering,Low
+SKL0015,Object-Oriented Design,Software Engineering,Medium
+SKL0016,FastAPI,Software Engineering,Medium
+SKL0017,Python,Software Engineering,Low
+SKL0018,Angular,Software Engineering,Medium
+SKL0019,Design Patterns,Software Engineering,Medium
+SKL0020,C#,Software Engineering,Low
+SKL0021,Unit Testing,Software Engineering,Medium
+SKL0022,gRPC,Software Engineering,Low
+SKL0023,Go,Software Engineering,Medium
+SKL0024,Ruby on Rails,Software Engineering,Medium
+SKL0025,Microservices,Software Engineering,High
+SKL0026,REST API Design,Software Engineering,High
+SKL0027,PHP,Software Engineering,High
+SKL0028,Java,Software Engineering,High
+SKL0029,.NET Core,Software Engineering,High
+SKL0030,C++,Software Engineering,High
+SKL0031,Distributed Systems - Advanced,Software Engineering,High
+SKL0032,Vue.js - Advanced,Software Engineering,Medium
+SKL0033,Node.js - Advanced,Software Engineering,Medium
+SKL0034,Flask - Advanced,Software Engineering,Medium
+SKL0035,Swift - Advanced,Software Engineering,High
+SKL0036,Spring Boot - Advanced,Software Engineering,High
+SKL0037,Rust - Advanced,Software Engineering,Low
+SKL0038,React - Advanced,Software Engineering,Medium
+SKL0039,TypeScript - Advanced,Software Engineering,Medium
+SKL0040,System Design - Advanced,Software Engineering,High
+SKL0041,GraphQL - Advanced,Software Engineering,Medium
+SKL0042,Django - Advanced,Software Engineering,High
+SKL0043,Event-Driven Architecture - Advanced,Software Engineering,Medium
+SKL0044,Kotlin - Advanced,Software Engineering,Low
+SKL0045,Object-Oriented Design - Advanced,Software Engineering,Medium
+SKL0046,FastAPI - Advanced,Software Engineering,Medium
+SKL0047,Python - Advanced,Software Engineering,Medium
+SKL0048,Angular - Advanced,Software Engineering,Low
+SKL0049,Design Patterns - Advanced,Software Engineering,Low
+SKL0050,C# - Advanced,Software Engineering,High
+SKL0051,Unit Testing - Advanced,Software Engineering,High
+SKL0052,gRPC - Advanced,Software Engineering,Medium
+SKL0053,Go - Advanced,Software Engineering,High
+SKL0054,Ruby on Rails - Advanced,Software Engineering,High
+SKL0055,Microservices - Advanced,Software Engineering,Low
+SKL0056,REST API Design - Advanced,Software Engineering,Low
+SKL0057,PHP - Advanced,Software Engineering,Medium
+SKL0058,Java - Advanced,Software Engineering,Medium
+SKL0059,.NET Core - Advanced,Software Engineering,Medium
+SKL0060,C++ - Advanced,Software Engineering,Low
+SKL0061,Distributed Systems - Fundamentals,Software Engineering,Medium
+SKL0062,Vue.js - Fundamentals,Software Engineering,High
+SKL0063,Node.js - Fundamentals,Software Engineering,High
+SKL0064,Flask - Fundamentals,Software Engineering,Medium
+SKL0065,Swift - Fundamentals,Software Engineering,High
+SKL0066,Spring Boot - Fundamentals,Software Engineering,Medium
+SKL0067,Rust - Fundamentals,Software Engineering,Low
+SKL0068,React - Fundamentals,Software Engineering,Medium
+SKL0069,TypeScript - Fundamentals,Software Engineering,High
+SKL0070,System Design - Fundamentals,Software Engineering,Low
+SKL0071,GraphQL - Fundamentals,Software Engineering,Medium
+SKL0072,Django - Fundamentals,Software Engineering,High
+SKL0073,Event-Driven Architecture - Fundamentals,Software Engineering,High
+SKL0074,Azure AKS,Cloud,High
+SKL0075,Microsoft Azure,Cloud,Medium
+SKL0076,Azure DevOps,Cloud,Medium
+SKL0077,VMware,Cloud,Low
+SKL0078,AWS EKS,Cloud,Low
+SKL0079,OpenShift,Cloud,High
+SKL0080,Cloud Security Architecture,Cloud,Medium
+SKL0081,AWS,Cloud,High
+SKL0082,Serverless Architecture,Cloud,Low
+SKL0083,Hybrid Cloud,Cloud,Low
+SKL0084,Azure Functions,Cloud,High
+SKL0085,AWS Lambda,Cloud,Medium
+SKL0086,Cloud Migration,Cloud,Medium
+SKL0087,Cloud Cost Optimization,Cloud,High
+SKL0088,CloudFormation,Cloud,Low
+SKL0089,Google Cloud Platform,Cloud,Medium
+SKL0090,Multi-cloud Strategy,Cloud,Low
+SKL0091,Terraform,Cloud,Medium
+SKL0092,Docker,Cloud,High
+SKL0093,Kubernetes,Cloud,Medium
+SKL0094,Azure AKS - Advanced,Cloud,High
+SKL0095,Microsoft Azure - Advanced,Cloud,Low
+SKL0096,Azure DevOps - Advanced,Cloud,Low
+SKL0097,VMware - Advanced,Cloud,Low
+SKL0098,AWS EKS - Advanced,Cloud,Medium
+SKL0099,OpenShift - Advanced,Cloud,High
+SKL0100,Cloud Security Architecture - Advanced,Cloud,Low
+SKL0101,AWS - Advanced,Cloud,Low
+SKL0102,Serverless Architecture - Advanced,Cloud,High
+SKL0103,Hybrid Cloud - Advanced,Cloud,Medium
+SKL0104,Azure Functions - Advanced,Cloud,High
+SKL0105,AWS Lambda - Advanced,Cloud,Low
+SKL0106,Cloud Migration - Advanced,Cloud,Low
+SKL0107,Cloud Cost Optimization - Advanced,Cloud,High
+SKL0108,CloudFormation - Advanced,Cloud,Medium
+SKL0109,Google Cloud Platform - Advanced,Cloud,Medium
+SKL0110,Multi-cloud Strategy - Advanced,Cloud,High
+SKL0111,Terraform - Advanced,Cloud,Low
+SKL0112,Docker - Advanced,Cloud,Medium
+SKL0113,Kubernetes - Advanced,Cloud,High
+SKL0114,Azure AKS - Fundamentals,Cloud,Medium
+SKL0115,Microsoft Azure - Fundamentals,Cloud,Medium
+SKL0116,Azure DevOps - Fundamentals,Cloud,High
+SKL0117,VMware - Fundamentals,Cloud,Medium
+SKL0118,AWS EKS - Fundamentals,Cloud,Low
+SKL0119,OpenShift - Fundamentals,Cloud,Medium
+SKL0120,Cloud Security Architecture - Fundamentals,Cloud,Medium
+SKL0121,AWS - Fundamentals,Cloud,Medium
+SKL0122,Serverless Architecture - Fundamentals,Cloud,High
+SKL0123,Anthropic Claude API,AI,Low
+SKL0124,Prompt Engineering,AI,High
+SKL0125,RAG Architecture,AI,High
+SKL0126,Multi-modal AI,AI,Medium
+SKL0127,Computer Vision,AI,High
+SKL0128,AI Ethics,AI,High
+SKL0129,Speech Recognition,AI,Low
+SKL0130,Fine-tuning LLMs,AI,Medium
+SKL0131,Vector Databases,AI,Medium
+SKL0132,LangChain,AI,Low
+SKL0133,Conversational AI,AI,Low
+SKL0134,OpenAI API,AI,High
+SKL0135,Generative AI,AI,High
+SKL0136,AI Agents,AI,Medium
+SKL0137,Large Language Models,AI,Medium
+SKL0138,Natural Language Processing,AI,Medium
+SKL0139,Anthropic Claude API - Advanced,AI,Medium
+SKL0140,Prompt Engineering - Advanced,AI,Medium
+SKL0141,RAG Architecture - Advanced,AI,Low
+SKL0142,Multi-modal AI - Advanced,AI,High
+SKL0143,Computer Vision - Advanced,AI,Medium
+SKL0144,AI Ethics - Advanced,AI,Medium
+SKL0145,Speech Recognition - Advanced,AI,Low
+SKL0146,Fine-tuning LLMs - Advanced,AI,High
+SKL0147,Vector Databases - Advanced,AI,High
+SKL0148,LangChain - Advanced,AI,Medium
+SKL0149,Conversational AI - Advanced,AI,Medium
+SKL0150,OpenAI API - Advanced,AI,High
+SKL0151,Generative AI - Advanced,AI,High
+SKL0152,AI Agents - Advanced,AI,Low
+SKL0153,Large Language Models - Advanced,AI,Medium
+SKL0154,Natural Language Processing - Advanced,AI,Low
+SKL0155,Anthropic Claude API - Fundamentals,AI,Medium
+SKL0156,Prompt Engineering - Fundamentals,AI,High
+SKL0157,RAG Architecture - Fundamentals,AI,Low
+SKL0158,Multi-modal AI - Fundamentals,AI,Low
+SKL0159,Computer Vision - Fundamentals,AI,Low
+SKL0160,AI Ethics - Fundamentals,AI,Low
+SKL0161,Speech Recognition - Fundamentals,AI,Low
+SKL0162,A/B Testing,Machine Learning,Medium
+SKL0163,Feature Engineering,Machine Learning,Medium
+SKL0164,XGBoost,Machine Learning,Low
+SKL0165,Neural Networks,Machine Learning,Medium
+SKL0166,Recommendation Systems,Machine Learning,Medium
+SKL0167,Reinforcement Learning,Machine Learning,High
+SKL0168,Anomaly Detection,Machine Learning,High
+SKL0169,Deep Learning,Machine Learning,High
+SKL0170,TensorFlow,Machine Learning,Medium
+SKL0171,Scikit-learn,Machine Learning,High
+SKL0172,Predictive Analytics,Machine Learning,Medium
+SKL0173,PyTorch,Machine Learning,High
+SKL0174,Statistical Modeling,Machine Learning,Medium
+SKL0175,Time Series Forecasting,Machine Learning,Low
+SKL0176,Model Deployment,Machine Learning,Medium
+SKL0177,MLOps,Machine Learning,High
+SKL0178,A/B Testing - Advanced,Machine Learning,Medium
+SKL0179,Feature Engineering - Advanced,Machine Learning,Low
+SKL0180,XGBoost - Advanced,Machine Learning,High
+SKL0181,Neural Networks - Advanced,Machine Learning,High
+SKL0182,Recommendation Systems - Advanced,Machine Learning,Low
+SKL0183,Reinforcement Learning - Advanced,Machine Learning,Medium
+SKL0184,Anomaly Detection - Advanced,Machine Learning,Low
+SKL0185,Deep Learning - Advanced,Machine Learning,Medium
+SKL0186,TensorFlow - Advanced,Machine Learning,Medium
+SKL0187,Scikit-learn - Advanced,Machine Learning,High
+SKL0188,Predictive Analytics - Advanced,Machine Learning,High
+SKL0189,PyTorch - Advanced,Machine Learning,Medium
+SKL0190,Statistical Modeling - Advanced,Machine Learning,Medium
+SKL0191,Time Series Forecasting - Advanced,Machine Learning,Medium
+SKL0192,Model Deployment - Advanced,Machine Learning,High
+SKL0193,MLOps - Advanced,Machine Learning,Medium
+SKL0194,A/B Testing - Fundamentals,Machine Learning,Medium
+SKL0195,Feature Engineering - Fundamentals,Machine Learning,High
+SKL0196,XGBoost - Fundamentals,Machine Learning,High
+SKL0197,Neural Networks - Fundamentals,Machine Learning,Medium
+SKL0198,Recommendation Systems - Fundamentals,Machine Learning,Medium
+SKL0199,Reinforcement Learning - Fundamentals,Machine Learning,Low
+SKL0200,Anomaly Detection - Fundamentals,Machine Learning,Low
+SKL0201,Master Data Management,Data Engineering,Medium
+SKL0202,Apache Hadoop,Data Engineering,Low
+SKL0203,Stream Processing,Data Engineering,Medium
+SKL0204,Data Warehousing,Data Engineering,High
+SKL0205,Data Lake Architecture,Data Engineering,Low
+SKL0206,Data Modeling,Data Engineering,High
+SKL0207,SQL,Data Engineering,Medium
+SKL0208,Data Governance,Data Engineering,Low
+SKL0209,ETL Pipeline Design,Data Engineering,High
+SKL0210,Airflow,Data Engineering,High
+SKL0211,Databricks,Data Engineering,High
+SKL0212,dbt,Data Engineering,Medium
+SKL0213,Redshift,Data Engineering,High
+SKL0214,NoSQL,Data Engineering,Medium
+SKL0215,Apache Kafka,Data Engineering,Medium
+SKL0216,Snowflake,Data Engineering,High
+SKL0217,BigQuery,Data Engineering,Medium
+SKL0218,Apache Spark,Data Engineering,High
+SKL0219,Master Data Management - Advanced,Data Engineering,Medium
+SKL0220,Apache Hadoop - Advanced,Data Engineering,Low
+SKL0221,Stream Processing - Advanced,Data Engineering,Low
+SKL0222,Data Warehousing - Advanced,Data Engineering,High
+SKL0223,Data Lake Architecture - Advanced,Data Engineering,Medium
+SKL0224,Data Modeling - Advanced,Data Engineering,High
+SKL0225,SQL - Advanced,Data Engineering,High
+SKL0226,Data Governance - Advanced,Data Engineering,Low
+SKL0227,ETL Pipeline Design - Advanced,Data Engineering,Medium
+SKL0228,Airflow - Advanced,Data Engineering,High
+SKL0229,Databricks - Advanced,Data Engineering,Medium
+SKL0230,dbt - Advanced,Data Engineering,Medium
+SKL0231,Redshift - Advanced,Data Engineering,Medium
+SKL0232,NoSQL - Advanced,Data Engineering,High
+SKL0233,Apache Kafka - Advanced,Data Engineering,High
+SKL0234,Snowflake - Advanced,Data Engineering,Low
+SKL0235,BigQuery - Advanced,Data Engineering,Low
+SKL0236,Apache Spark - Advanced,Data Engineering,Medium
+SKL0237,Master Data Management - Fundamentals,Data Engineering,Low
+SKL0238,Apache Hadoop - Fundamentals,Data Engineering,Medium
+SKL0239,Stream Processing - Fundamentals,Data Engineering,High
+SKL0240,Data Warehousing - Fundamentals,Data Engineering,High
+SKL0241,Data Lake Architecture - Fundamentals,Data Engineering,Medium
+SKL0242,Data Modeling - Fundamentals,Data Engineering,Low
+SKL0243,SQL - Fundamentals,Data Engineering,Low
+SKL0244,Data Governance - Fundamentals,Data Engineering,Low
+SKL0245,Application Security,Cybersecurity,Low
+SKL0246,Identity & Access Management,Cybersecurity,High
+SKL0247,Penetration Testing,Cybersecurity,Medium
+SKL0248,Zero Trust Architecture,Cybersecurity,Medium
+SKL0249,Vulnerability Management,Cybersecurity,Low
+SKL0250,Security Compliance (ISO 27001),Cybersecurity,Low
+SKL0251,Cloud Security,Cybersecurity,Low
+SKL0252,Incident Response,Cybersecurity,Low
+SKL0253,GDPR Compliance,Cybersecurity,High
+SKL0254,SIEM,Cybersecurity,Low
+SKL0255,Encryption & Cryptography,Cybersecurity,High
+SKL0256,SOC Operations,Cybersecurity,Low
+SKL0257,Network Security,Cybersecurity,Low
+SKL0258,Threat Intelligence,Cybersecurity,High
+SKL0259,Application Security - Advanced,Cybersecurity,Low
+SKL0260,Identity & Access Management - Advanced,Cybersecurity,Medium
+SKL0261,Penetration Testing - Advanced,Cybersecurity,Medium
+SKL0262,Zero Trust Architecture - Advanced,Cybersecurity,Low
+SKL0263,Vulnerability Management - Advanced,Cybersecurity,High
+SKL0264,Security Compliance (ISO 27001) - Advanced,Cybersecurity,High
+SKL0265,Cloud Security - Advanced,Cybersecurity,High
+SKL0266,Incident Response - Advanced,Cybersecurity,Medium
+SKL0267,GDPR Compliance - Advanced,Cybersecurity,Low
+SKL0268,SIEM - Advanced,Cybersecurity,Low
+SKL0269,Encryption & Cryptography - Advanced,Cybersecurity,High
+SKL0270,SOC Operations - Advanced,Cybersecurity,Medium
+SKL0271,Network Security - Advanced,Cybersecurity,Medium
+SKL0272,Threat Intelligence - Advanced,Cybersecurity,Low
+SKL0273,Application Security - Fundamentals,Cybersecurity,Medium
+SKL0274,Identity & Access Management - Fundamentals,Cybersecurity,Low
+SKL0275,Penetration Testing - Fundamentals,Cybersecurity,High
+SKL0276,Zero Trust Architecture - Fundamentals,Cybersecurity,Low
+SKL0277,Vulnerability Management - Fundamentals,Cybersecurity,High
+SKL0278,Security Compliance (ISO 27001) - Fundamentals,Cybersecurity,Low
+SKL0279,GitLab CI,DevOps,High
+SKL0280,Configuration Management,DevOps,Medium
+SKL0281,Chaos Engineering,DevOps,High
+SKL0282,Helm,DevOps,Low
+SKL0283,Prometheus,DevOps,Medium
+SKL0284,Service Mesh (Istio),DevOps,Medium
+SKL0285,GitHub Actions,DevOps,Medium
+SKL0286,Grafana,DevOps,Medium
+SKL0287,Site Reliability Engineering,DevOps,Medium
+SKL0288,Monitoring & Observability,DevOps,High
+SKL0289,Infrastructure as Code,DevOps,Medium
+SKL0290,Jenkins,DevOps,Medium
+SKL0291,CI/CD Pipeline Design,DevOps,Medium
+SKL0292,Ansible,DevOps,Low
+SKL0293,GitLab CI - Advanced,DevOps,Medium
+SKL0294,Configuration Management - Advanced,DevOps,Medium
+SKL0295,Chaos Engineering - Advanced,DevOps,Medium
+SKL0296,Helm - Advanced,DevOps,Medium
+SKL0297,Prometheus - Advanced,DevOps,Medium
+SKL0298,Service Mesh (Istio) - Advanced,DevOps,High
+SKL0299,GitHub Actions - Advanced,DevOps,High
+SKL0300,Grafana - Advanced,DevOps,Medium
+SKL0301,Site Reliability Engineering - Advanced,DevOps,Low
+SKL0302,Monitoring & Observability - Advanced,DevOps,Medium
+SKL0303,Infrastructure as Code - Advanced,DevOps,Low
+SKL0304,Jenkins - Advanced,DevOps,Medium
+SKL0305,CI/CD Pipeline Design - Advanced,DevOps,Medium
+SKL0306,Ansible - Advanced,DevOps,Medium
+SKL0307,GitLab CI - Fundamentals,DevOps,High
+SKL0308,Configuration Management - Fundamentals,DevOps,High
+SKL0309,Chaos Engineering - Fundamentals,DevOps,Medium
+SKL0310,Helm - Fundamentals,DevOps,Medium
+SKL0311,Prometheus - Fundamentals,DevOps,Medium
+SKL0312,Service Mesh (Istio) - Fundamentals,DevOps,Medium
+SKL0313,Pricing Strategy,Product Management,High
+SKL0314,Agile/Scrum,Product Management,Low
+SKL0315,User Story Mapping,Product Management,High
+SKL0316,Product Strategy,Product Management,Medium
+SKL0317,Roadmap Planning,Product Management,Low
+SKL0318,Product Analytics,Product Management,High
+SKL0319,Go-to-Market Strategy,Product Management,High
+SKL0320,OKR Management,Product Management,Low
+SKL0321,Stakeholder Management,Product Management,Medium
+SKL0322,Competitive Analysis,Product Management,Low
+SKL0323,Pricing Strategy - Advanced,Product Management,Medium
+SKL0324,Agile/Scrum - Advanced,Product Management,Low
+SKL0325,User Story Mapping - Advanced,Product Management,Medium
+SKL0326,Product Strategy - Advanced,Product Management,Medium
+SKL0327,Roadmap Planning - Advanced,Product Management,Medium
+SKL0328,Product Analytics - Advanced,Product Management,Medium
+SKL0329,Go-to-Market Strategy - Advanced,Product Management,High
+SKL0330,OKR Management - Advanced,Product Management,Medium
+SKL0331,Stakeholder Management - Advanced,Product Management,Low
+SKL0332,Competitive Analysis - Advanced,Product Management,Low
+SKL0333,Pricing Strategy - Fundamentals,Product Management,Low
+SKL0334,Agile/Scrum - Fundamentals,Product Management,Low
+SKL0335,User Story Mapping - Fundamentals,Product Management,High
+SKL0336,Product Strategy - Fundamentals,Product Management,Low
+SKL0337,Business Process Reengineering,Business Analysis,Medium
+SKL0338,Use Case Modeling,Business Analysis,Low
+SKL0339,SWOT Analysis,Business Analysis,Medium
+SKL0340,Gap Analysis,Business Analysis,Low
+SKL0341,Six Sigma,Business Analysis,Low
+SKL0342,Process Mapping,Business Analysis,Medium
+SKL0343,Stakeholder Interviewing,Business Analysis,Medium
+SKL0344,Requirements Gathering,Business Analysis,Medium
+SKL0345,Business Case Development,Business Analysis,Low
+SKL0346,Change Management,Business Analysis,Medium
+SKL0347,Business Process Reengineering - Advanced,Business Analysis,Low
+SKL0348,Use Case Modeling - Advanced,Business Analysis,Medium
+SKL0349,SWOT Analysis - Advanced,Business Analysis,Medium
+SKL0350,Gap Analysis - Advanced,Business Analysis,High
+SKL0351,Six Sigma - Advanced,Business Analysis,High
+SKL0352,Process Mapping - Advanced,Business Analysis,Medium
+SKL0353,Stakeholder Interviewing - Advanced,Business Analysis,Low
+SKL0354,Requirements Gathering - Advanced,Business Analysis,Medium
+SKL0355,Business Case Development - Advanced,Business Analysis,Medium
+SKL0356,Change Management - Advanced,Business Analysis,High
+SKL0357,Business Process Reengineering - Fundamentals,Business Analysis,High
+SKL0358,Use Case Modeling - Fundamentals,Business Analysis,High
+SKL0359,SWOT Analysis - Fundamentals,Business Analysis,High
+SKL0360,Gap Analysis - Fundamentals,Business Analysis,Medium
+SKL0361,Usability Testing,UI/UX,High
+SKL0362,Figma,UI/UX,Medium
+SKL0363,Accessibility Design (WCAG),UI/UX,Medium
+SKL0364,Design Systems,UI/UX,Medium
+SKL0365,Interaction Design,UI/UX,High
+SKL0366,Adobe XD,UI/UX,Medium
+SKL0367,Information Architecture,UI/UX,Low
+SKL0368,Wireframing,UI/UX,Medium
+SKL0369,User Research,UI/UX,Medium
+SKL0370,Prototyping,UI/UX,Low
+SKL0371,Usability Testing - Advanced,UI/UX,Low
+SKL0372,Figma - Advanced,UI/UX,Medium
+SKL0373,Accessibility Design (WCAG) - Advanced,UI/UX,High
+SKL0374,Design Systems - Advanced,UI/UX,Medium
+SKL0375,Interaction Design - Advanced,UI/UX,Low
+SKL0376,Adobe XD - Advanced,UI/UX,Low
+SKL0377,Information Architecture - Advanced,UI/UX,Low
+SKL0378,Wireframing - Advanced,UI/UX,Medium
+SKL0379,User Research - Advanced,UI/UX,Medium
+SKL0380,Prototyping - Advanced,UI/UX,Medium
+SKL0381,Usability Testing - Fundamentals,UI/UX,Medium
+SKL0382,Figma - Fundamentals,UI/UX,High
+SKL0383,Accessibility Design (WCAG) - Fundamentals,UI/UX,High
+SKL0384,Design Systems - Fundamentals,UI/UX,Medium
+SKL0385,Supply Chain Module Config,ERP,Low
+SKL0386,Procurement Module Config,ERP,Medium
+SKL0387,Workday,ERP,Low
+SKL0388,Microsoft Dynamics 365,ERP,Medium
+SKL0389,ERP Data Migration,ERP,Medium
+SKL0390,NetSuite,ERP,High
+SKL0391,ERP Implementation,ERP,Medium
+SKL0392,ERP Integration,ERP,Low
+SKL0393,Oracle ERP Cloud,ERP,High
+SKL0394,Supply Chain Module Config - Advanced,ERP,High
+SKL0395,Procurement Module Config - Advanced,ERP,Medium
+SKL0396,Workday - Advanced,ERP,Medium
+SKL0397,Microsoft Dynamics 365 - Advanced,ERP,Medium
+SKL0398,ERP Data Migration - Advanced,ERP,Low
+SKL0399,NetSuite - Advanced,ERP,High
+SKL0400,ERP Implementation - Advanced,ERP,Low
+SKL0401,ERP Integration - Advanced,ERP,Medium
+SKL0402,Oracle ERP Cloud - Advanced,ERP,Low
+SKL0403,Supply Chain Module Config - Fundamentals,ERP,Medium
+SKL0404,Procurement Module Config - Fundamentals,ERP,Medium
+SKL0405,Workday - Fundamentals,ERP,High
+SKL0406,Microsoft Dynamics 365 - Fundamentals,ERP,Low
+SKL0407,SAP HANA Modeling,SAP,Medium
+SKL0408,SAP MM,SAP,High
+SKL0409,SAP ABAP,SAP,Low
+SKL0410,SAP BASIS,SAP,Medium
+SKL0411,SAP BTP,SAP,High
+SKL0412,SAP Fiori,SAP,Medium
+SKL0413,SAP Ariba,SAP,Medium
+SKL0414,SAP SuccessFactors,SAP,Low
+SKL0415,SAP S/4HANA,SAP,Medium
+SKL0416,SAP FICO,SAP,Low
+SKL0417,SAP SD,SAP,High
+SKL0418,SAP HANA Modeling - Advanced,SAP,Medium
+SKL0419,SAP MM - Advanced,SAP,Medium
+SKL0420,SAP ABAP - Advanced,SAP,Low
+SKL0421,SAP BASIS - Advanced,SAP,Medium
+SKL0422,SAP BTP - Advanced,SAP,Low
+SKL0423,SAP Fiori - Advanced,SAP,Medium
+SKL0424,SAP Ariba - Advanced,SAP,Low
+SKL0425,SAP SuccessFactors - Advanced,SAP,High
+SKL0426,SAP S/4HANA - Advanced,SAP,Medium
+SKL0427,SAP FICO - Advanced,SAP,Low
+SKL0428,SAP SD - Advanced,SAP,High
+SKL0429,SAP HANA Modeling - Fundamentals,SAP,Medium
+SKL0430,SAP MM - Fundamentals,SAP,Medium
+SKL0431,SAP ABAP - Fundamentals,SAP,Medium
+SKL0432,SAP BASIS - Fundamentals,SAP,Low
+SKL0433,SAP BTP - Fundamentals,SAP,Low
+SKL0434,Salesforce Service Cloud,Salesforce,High
+SKL0435,Apex Programming,Salesforce,Medium
+SKL0436,Salesforce Marketing Cloud,Salesforce,Medium
+SKL0437,Salesforce Einstein Analytics,Salesforce,Medium
+SKL0438,Visualforce,Salesforce,Medium
+SKL0439,Salesforce Lightning,Salesforce,Low
+SKL0440,Salesforce Integration,Salesforce,Medium
+SKL0441,Salesforce CPQ,Salesforce,High
+SKL0442,Salesforce Administration,Salesforce,High
+SKL0443,Salesforce Service Cloud - Advanced,Salesforce,Medium
+SKL0444,Apex Programming - Advanced,Salesforce,Medium
+SKL0445,Salesforce Marketing Cloud - Advanced,Salesforce,Medium
+SKL0446,Salesforce Einstein Analytics - Advanced,Salesforce,Low
+SKL0447,Visualforce - Advanced,Salesforce,Low
+SKL0448,Salesforce Lightning - Advanced,Salesforce,Medium
+SKL0449,Salesforce Integration - Advanced,Salesforce,Low
+SKL0450,Salesforce CPQ - Advanced,Salesforce,Medium
+SKL0451,Salesforce Administration - Advanced,Salesforce,Medium
+SKL0452,Salesforce Service Cloud - Fundamentals,Salesforce,High
+SKL0453,Apex Programming - Fundamentals,Salesforce,Low
+SKL0454,Salesforce Marketing Cloud - Fundamentals,Salesforce,High
+SKL0455,Salesforce Einstein Analytics - Fundamentals,Salesforce,Medium
+SKL0456,Treasury Management,Finance,High
+SKL0457,Financial Planning & Analysis,Finance,Low
+SKL0458,Risk Management,Finance,Medium
+SKL0459,Budgeting & Forecasting,Finance,Low
+SKL0460,Cost Accounting,Finance,Medium
+SKL0461,Financial Modeling,Finance,High
+SKL0462,IFRS/GAAP,Finance,High
+SKL0463,Tax Compliance,Finance,Low
+SKL0464,Mergers & Acquisitions Analysis,Finance,High
+SKL0465,Treasury Management - Advanced,Finance,Medium
+SKL0466,Financial Planning & Analysis - Advanced,Finance,Medium
+SKL0467,Risk Management - Advanced,Finance,Low
+SKL0468,Budgeting & Forecasting - Advanced,Finance,Medium
+SKL0469,Cost Accounting - Advanced,Finance,Medium
+SKL0470,Financial Modeling - Advanced,Finance,Medium
+SKL0471,IFRS/GAAP - Advanced,Finance,Low
+SKL0472,Tax Compliance - Advanced,Finance,High
+SKL0473,Mergers & Acquisitions Analysis - Advanced,Finance,High
+SKL0474,Treasury Management - Fundamentals,Finance,Medium
+SKL0475,Financial Planning & Analysis - Fundamentals,Finance,Medium
+SKL0476,Risk Management - Fundamentals,Finance,Medium
+SKL0477,Budgeting & Forecasting - Fundamentals,Finance,Medium
+SKL0478,Talent Acquisition,HR,High
+SKL0479,Learning & Development Design,HR,High
+SKL0480,Compensation & Benefits,HR,High
+SKL0481,Performance Management,HR,High
+SKL0482,HR Analytics,HR,High
+SKL0483,HRIS Administration,HR,Medium
+SKL0484,Employee Relations,HR,Low
+SKL0485,Organizational Development,HR,High
+SKL0486,Workforce Planning,HR,High
+SKL0487,Talent Acquisition - Advanced,HR,Medium
+SKL0488,Learning & Development Design - Advanced,HR,Medium
+SKL0489,Compensation & Benefits - Advanced,HR,Low
+SKL0490,Performance Management - Advanced,HR,Medium
+SKL0491,HR Analytics - Advanced,HR,High
+SKL0492,HRIS Administration - Advanced,HR,High
+SKL0493,Employee Relations - Advanced,HR,High
+SKL0494,Organizational Development - Advanced,HR,High
+SKL0495,Workforce Planning - Advanced,HR,High
+SKL0496,Talent Acquisition - Fundamentals,HR,High
+SKL0497,Learning & Development Design - Fundamentals,HR,Medium
+SKL0498,Compensation & Benefits - Fundamentals,HR,High
+SKL0499,Performance Management - Fundamentals,HR,Low
+SKL0500,HR Analytics - Fundamentals,HR,Medium

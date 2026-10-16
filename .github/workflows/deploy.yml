@@ -1,0 +1,28 @@
+name: Deployment Skeleton
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  deploy-backend:
+    runs-on: ubuntu-latest
+    needs: [] # In a real scenario, this would depend on ci.yml passing
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Deploy to Cloud Provider
+        run: |
+          echo "Deployment to Railway/Render/Fly.io would occur here."
+          echo "Typically involves using a CLI tool like 'railway up' or pushing to a remote deployment git branch."
+
+  deploy-frontend:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Deploy to Vercel/Netlify
+        run: |
+          echo "Deployment to Vercel/Netlify would occur here."
+          echo "Usually executed via Vercel CLI: 'vercel --prod'"
