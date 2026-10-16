@@ -21,8 +21,8 @@ class EmployeeSkill(Base):
     proficiency_level: Mapped[int] = mapped_column(Integer) # e.g. 1-100
     
     # Relationships
-    employee: Mapped["Employee"] = relationship("Employee", back_populates="skills")
-    skill: Mapped["Skill"] = relationship("Skill")
+    employee = relationship("Employee", back_populates="skills")
+    skill = relationship("Skill")
 
 class Certification(Base):
     """Professional certifications held by employees."""
@@ -35,4 +35,4 @@ class Certification(Base):
     expiration_date: Mapped[date | None] = mapped_column(Date, nullable=True)
     
     # Relationships
-    employee: Mapped["Employee"] = relationship("Employee", back_populates="certifications")
+    employee = relationship("Employee", back_populates="certifications")

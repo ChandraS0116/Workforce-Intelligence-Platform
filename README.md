@@ -10,6 +10,7 @@
 ![ML Engine](https://img.shields.io/badge/ML%20Engine-XGBoost%20%7C%20Scikit--Learn-FF6F00?style=for-the-badge)
 ![Database](https://img.shields.io/badge/Database-SQLite%20%7C%20PostgreSQL-003B57?style=for-the-badge&logo=sqlite&logoColor=white)
 ![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
+[![CI](https://github.com/ChandraS0116/Workforce-Intelligence-Platform/actions/workflows/ci.yml/badge.svg)](https://github.com/ChandraS0116/Workforce-Intelligence-Platform/actions)
 
 **Enterprise AI Workforce Intelligence, Predictive Talent Capacity & Team Optimization System**
 

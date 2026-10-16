@@ -36,7 +36,7 @@ class HistoricalProjectOutcome(Base):
     budget_variance: Mapped[float] = mapped_column(Float, default=0.0)
     
     # Relationships
-    project: Mapped["Project"] = relationship("Project", back_populates="outcomes")
+    project = relationship("Project", back_populates="outcomes")
 
 class BurnoutMetrics(Base):
     """Time-series predictions of burnout probability."""

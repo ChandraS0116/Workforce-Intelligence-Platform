@@ -16,9 +16,9 @@ class Project(Base):
     manager_id: Mapped[int | None] = mapped_column(ForeignKey("employees.id"), nullable=True)
     
     # Relationships
-    requirements: Mapped[list["ProjectRequirement"]] = relationship("ProjectRequirement", back_populates="project")
-    assignments: Mapped[list["TeamAssignment"]] = relationship("TeamAssignment", back_populates="project")
-    outcomes: Mapped[list["HistoricalProjectOutcome"]] = relationship("HistoricalProjectOutcome", back_populates="project")
+    requirements = relationship("ProjectRequirement", back_populates="project")
+    assignments = relationship("TeamAssignment", back_populates="project")
+    outcomes = relationship("HistoricalProjectOutcome", back_populates="project")
 
 class ProjectRequirement(Base):
     """Skills required for a project."""
@@ -31,8 +31,8 @@ class ProjectRequirement(Base):
     required_headcount: Mapped[int] = mapped_column(Integer, default=1)
     
     # Relationships
-    project: Mapped["Project"] = relationship("Project", back_populates="requirements")
-    skill: Mapped["Skill"] = relationship("Skill")
+    project = relationship("Project", back_populates="requirements")
+    skill = relationship("Skill")
 
 class TeamAssignment(Base):
     """Links employees to projects with their role and allocation."""
@@ -47,5 +47,5 @@ class TeamAssignment(Base):
     end_date: Mapped[date | None] = mapped_column(Date, nullable=True)
     
     # Relationships
-    employee: Mapped["Employee"] = relationship("Employee", back_populates="assignments")
-    project: Mapped["Project"] = relationship("Project", back_populates="assignments")
+    employee = relationship("Employee", back_populates="assignments")
+    project = relationship("Project", back_populates="assignments")

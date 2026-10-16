@@ -11,6 +11,8 @@ xgboost
 scikit-learn
 python-multipart
 passlib[bcrypt]
+bcrypt
 python-jose[cryptography]
+python-dotenv
 pytest
 httpx

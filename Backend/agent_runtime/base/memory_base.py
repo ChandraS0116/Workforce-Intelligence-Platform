@@ -1,3 +1,5 @@
+from typing import Any
+
 class MemoryBase:
     def __init__(self):
         self.state = {}

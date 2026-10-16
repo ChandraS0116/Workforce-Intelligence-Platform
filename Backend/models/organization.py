@@ -10,4 +10,4 @@ class Department(Base):
     name: Mapped[str] = mapped_column(String(255), unique=True, index=True)
     
     # Relationships
-    employees: Mapped[list["Employee"]] = relationship("Employee", back_populates="department")
+    employees = relationship("Employee", back_populates="department")
